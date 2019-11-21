@@ -7,10 +7,10 @@
 
     
 
-    <title>设计模式之UML类图学习 | Code Ranger</title>
+    <title>Linux压缩命令 | Code Ranger</title>
     <meta name="author" content="Creven Young" />
     <meta name="keywords" content="" />
-    <meta name="description" content="认识UML类图学习设计模式之前，需要熟悉和掌握UML类图的构成，UML类图包含了各个类之间的各种关系，每个类用一个三层的方框表示，这些类包含了各自的属性和方法。在设计模式时，使用了简化版的UML类图，未标识变量与方法（通常抽象类应使用斜体，途中明文标出，但是未斜体）) (图片出自：https://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html#id3)看图认识UML类图中的6种关系实现（Realization）..." />
+    <meta name="description" content="Linux下文件的压缩#####压缩文件概述123456*.zip       //zip程序压缩的文件*.gz        //gzip程序压缩的文件*.bz2       //bzip2程序压缩的文件*.tar       //tar程序打包的文件，并未压缩*.tar.gz    //tar程序打包的文件，并使用gzip程序压缩*.tar.bz2   //tar程序打包的文件，并使用bzip2程序压缩gzip （针对单一文件） 基本概念：当你使用gzip进行压缩时，源文件..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -88,7 +88,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#认识UML类图"><span class="toc-number">1.</span> <span class="toc-text">认识UML类图</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux下文件的压缩"><span class="toc-number">1.</span> <span class="toc-text">Linux下文件的压缩</span></a></li></ol>
         
     </div>
 
@@ -103,21 +103,21 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            设计模式之UML类图学习
+            Linux压缩命令
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BUML%E7%B1%BB%E5%9B%BE%E5%AD%A6%E4%B9%A0/index.html">
+            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-11-13T11:35:56.000Z" itemprop="datePublished">2019-11-13</time>
+    <time datetime="2019-11-21T14:35:56.000Z" itemprop="datePublished">2019-11-21</time>
 </a>
 
             
 <div class="article-tag-list">
     <i class="icon-tag"></i>
-    <a class="article-tag-link" href="/tags/C/" rel="tag">C++</a>, <a class="article-tag-link" href="/tags/UML/" rel="tag">UML</a>, <a class="article-tag-link" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" rel="tag">设计模式</a>
+    <a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>
 </div>
 
 
@@ -126,35 +126,30 @@
     
     <section class="article-body markdown-body">
         
-        <h4 id="认识UML类图"><a href="#认识UML类图" class="headerlink" title="认识UML类图"></a>认识UML类图</h4><p>学习设计模式之前，需要熟悉和掌握UML类图的构成，UML类图包含了各个类之间的各种关系，每个类用一个三层的方框表示，这些类包含了各自的属性和方法。</p>
-<p>在设计模式时，使用了简化版的UML类图，未标识变量与方法（通常抽象类应使用斜体，途中明文标出，但是未斜体）</p>
+        <h4 id="Linux下文件的压缩"><a href="#Linux下文件的压缩" class="headerlink" title="Linux下文件的压缩"></a>Linux下文件的压缩</h4><p>#####压缩文件概述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*.zip       //zip程序压缩的文件</span><br><span class="line">*.gz        //gzip程序压缩的文件</span><br><span class="line">*.bz2       //bzip2程序压缩的文件</span><br><span class="line">*.tar       //tar程序打包的文件，并未压缩</span><br><span class="line">*.tar.gz    //tar程序打包的文件，并使用gzip程序压缩</span><br><span class="line">*.tar.bz2   //tar程序打包的文件，并使用bzip2程序压缩</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p><img src="https://design-patterns.readthedocs.io/zh_CN/latest/_images/uml_class_struct.jpg" alt="image">) (图片出自：<a href="https://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html#id3" target="_blank" rel="noopener"><br>https://design-patterns.readthedocs.io/zh_CN/latest/read_uml.html#id3</a>)</p>
-<p><strong>看图认识UML类图中的6种关系</strong></p>
+
 <ol>
-<li><strong>实现（Realization）</strong>：实线是一种接口和类的继承关系，在C++中，使用抽象类来表征这样的接口，对抽象类的实现，就是这里的实现关系<ol>
-<li>符号表示：<strong>虚线</strong>+<strong>空心箭头</strong></li>
-</ol>
+<li><p><code>gzip</code> （针对单一文件）</p>
+<p> 基本概念：<strong>当你使用gzip进行压缩时，源文件就不存在了，在linux下压缩的gz文件，在windows系统下可以使用WinRAR解开</strong><br> 命令用法：</p>
+<ul>
+<li><strong>压缩</strong> <code>gzip file</code>压缩file文件，输出<code>file.gz</code></li>
+<li><strong>解压</strong> <code>gzip -d file.gz</code>解压<code>file.gz</code>文件，输出<code>file</code></li>
+</ul>
 </li>
-<li><strong>泛化（Generalization）</strong>：泛化是一种继承关系，表示一般与特殊的关系，比如车和SUV，鸟和燕子，等等。<ol>
-<li>符号表示：<strong>实线</strong>+<strong>空心箭头</strong></li>
-</ol>
+<li><p><code>bzip2</code> （针对单一文件）</p>
+<p> 基本概念：<strong>bzip2是为了替换gzip，提供更佳的压缩比而来的，其基本用法和gzip一致</strong><br> 命令用法：</p>
+<ul>
+<li><strong>压缩</strong> <code>bzip2 file</code>压缩file文件，输出<code>file.bz2</code></li>
+<li><strong>解压</strong> <code>bzip2 -d file.bz2</code>解压<code>file.bz2</code>文件，输出file</li>
+</ul>
 </li>
-<li><strong>聚合</strong>：聚合是一种整体和部分的关系，<strong>整体和部分都有各自的生命周期</strong>，整体如果消逝了，部分的还会存在，比如学生和班级的关系，某个班级取消了，这个班级的学生不会消失，而是去了另一个班级或者别的组织。<ol>
-<li>符号表示：<strong>实线</strong>+<strong>空心菱形</strong></li>
-</ol>
-</li>
-<li><strong>组合</strong>：组合是一种整体和部分的关系，这里强调的是，<strong>整体和部分的生命周期是捆绑在一起的</strong>，比如公司和部门，公司不存在了，那么部门肯定也不存在。<ol>
-<li>符号表示：<strong>实线</strong>+<strong>实心菱形</strong></li>
-</ol>
-</li>
-<li><strong>关联</strong>：关联是一种拥有关系，例如，单向关联：学生拥有学生证，双向关联：丈夫和妻子是互相拥有的状态。这种拥有关系，使一个类知道另一个类的属性和方法。<ol>
-<li>符号表示：<strong>实线</strong>+<strong>箭头</strong></li>
-</ol>
-</li>
-<li><strong>依赖</strong>：依赖使一种使用关系，它描述的是一个类的实现需要另一个类的协助。比如学生实现从家上学的方法需要使用自行车，那么学生依赖自行车<ol>
-<li>符号表示：<strong>虚线</strong>+<strong>箭头</strong></li>
-</ol>
+<li><p><code>tar</code> （打包多个文件，通过添加额外参数，同时进行压缩）<br> 基本概念：<strong>tar是一种打包命令，能够将多个文件或目录打包成一个大文件的命令功能，使用tar进行打包压缩的文件，以gzip压缩为例，生成*.tar.gz文件，这种文件在windows系统下能够用WinRAR解开</strong><br> 命令用法：（以gzip压缩为例 参数 -z）</p>
+<ul>
+<li><strong>压缩</strong> <code>tar zcvf file.tar.gz file1 file2 file3</code> 将file1、file2、file3通过tar打包，并使用gzip压缩，这里面<code>-z</code>表示gzip程序压缩，<code>-c</code>表示压缩，<code>-v</code>表示显示正在处理的文件名，<code>-f</code>后接自己取的压缩文件名 ，<strong>注意！这里的gzip压缩会保留源文件</strong></li>
+<li><strong>解压</strong> <code>tar zxvf file.tar.gz -C /tmp/test/</code> 将文件解压到指定目录<code>-x</code>表示解压，<code>-C</code>表示指定目录</li>
+</ul>
 </li>
 </ol>
 
@@ -164,8 +159,8 @@
 
 
 
+<a id="pagenext" href="/2019/11/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BUML%E7%B1%BB%E5%9B%BE%E5%AD%A6%E4%B9%A0/" class="article-next" title="设计模式之UML类图学习"><i class="icon-arrow-right"></i></a>
 
-<a id="pageprev" href="/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" class="article-prev" title="Linux压缩命令"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -179,11 +174,11 @@
         repo: "fuzhangyang.github.io",
         owner: "FuzhangYang",
         admin: ["FuzhangYang"],
-        id: "2019/11/13/设计模式之UML类图学习",
+        id: "2019/11/21/Linux压缩命令",
         distractionFreeMode: true,
-        title: "设计模式之UML类图学习",
-        body: "https://fuzhangyang.github.io/2019/11/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BUML%E7%B1%BB%E5%9B%BE%E5%AD%A6%E4%B9%A0/",
-        labels: ["设计模式","C++","UML"]
+        title: "Linux压缩命令",
+        body: "https://fuzhangyang.github.io/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/",
+        labels: ["Linux"]
     }).render('comments');
     </script>
 </div>
