@@ -7,10 +7,10 @@
 
     
 
-    <title>学习vi编辑器 | Code Ranger</title>
+    <title>vim编辑器额外功能 | Code Ranger</title>
     <meta name="author" content="Creven Young" />
     <meta name="keywords" content="" />
-    <meta name="description" content="一个vi案例练习一个vi的案例练习，总共15条操作，总是记不住，做个笔记，方便需要的时候直接查找。（摘自书籍：鸟哥的linux私房菜-第四版）请在/tmp这个目录下新建一个名为vitest的目录；（新建目录）mkdir /tmp/vitest进入vitest这个目录当中；（进入目录）cd /tmp/vitest/下载man_db.conf文件；（下载文件）wget http://linux.vbird.org/linux_basic/0310vi/man_db.conf使用v..." />
+    <meta name="description" content="1. 可视化区块（Visual Block）以一个矩形为操作单位，进行复制、删除、粘贴操作例如想要将上图处理成下图的形式可以使用可视化区块这个命令来完成这个操作    a. 按住ctrl+v，此时会以矩形的方式将光标进过的地方变白；    b. 将变白的地方复制y；        c. 移动到第一行末尾，插入一个空格，再回到命令行模式，粘贴p。" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -84,7 +84,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一个vi案例练习"><span class="toc-number">1.</span> <span class="toc-text">一个vi案例练习</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-可视化区块（Visual-Block）"><span class="toc-number">1.</span> <span class="toc-text">1. 可视化区块（Visual Block）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#例如"><span class="toc-number">1.1.</span> <span class="toc-text">例如</span></a></li></ol></li></ol>
         
     </div>
 
@@ -99,15 +99,15 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            学习vi编辑器
+            vim编辑器额外功能
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/22/vi%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
+            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/22/vim%E7%BC%96%E8%BE%91%E5%99%A8%E9%A2%9D%E5%A4%96%E5%8A%9F%E8%83%BD/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-11-22T02:34:56.000Z" itemprop="datePublished">2019-11-22</time>
+    <time datetime="2019-11-22T05:17:56.000Z" itemprop="datePublished">2019-11-22</time>
 </a>
 
             
@@ -122,26 +122,11 @@
     
     <section class="article-body markdown-body">
         
-        <h5 id="一个vi案例练习"><a href="#一个vi案例练习" class="headerlink" title="一个vi案例练习"></a>一个vi案例练习</h5><p>一个vi的案例练习，总共15条操作，总是记不住，做个笔记，方便需要的时候直接查找。<br>（摘自书籍：鸟哥的linux私房菜-第四版）</p>
+        <h5 id="1-可视化区块（Visual-Block）"><a href="#1-可视化区块（Visual-Block）" class="headerlink" title="1. 可视化区块（Visual Block）"></a>1. 可视化区块（Visual Block）</h5><p>以一个矩形为操作单位，进行复制、删除、粘贴操作</p>
 <a id="more"></a>
 
-<ol>
-<li>请在/tmp这个目录下新建一个名为vitest的目录；（<strong>新建目录</strong>）<br><code>mkdir /tmp/vitest</code></li>
-<li>进入vitest这个目录当中；（<strong>进入目录</strong>）<br><code>cd /tmp/vitest/</code></li>
-<li>下载man_db.conf文件；（<strong>下载文件</strong>）<br><code>wget http://linux.vbird.org/linux_basic/0310vi/man_db.conf</code></li>
-<li>使用vi打开这个conf文件；（<strong>打开文件</strong>）<br><code>vi man_db.conf</code></li>
-<li>在vi中设置一下行号；（<strong>设置行号</strong>）<br><code>:set nu</code></li>
-<li>移动到第43行，向右移动59个字符。（<strong>行列移动</strong>）<br><code>43G</code><br><code>59→</code></li>
-<li>移动到第一行，并且查找gzip这个字符串。（<strong>字符串查找</strong>）<br><code>1G</code>或<code>gg</code><br><code>/gzip</code>此时会跳转到93行</li>
-<li>将29到41行之间的小写man字符改为大写MAN字符，并且一个一个确定是否需要修改 (<strong>区间查找替换</strong>)<br><code>:29,41s/man/MAN/gc</code>此处的c表示一个一个确定是否需要修改</li>
-<li>修改完之后反悔了，要全部恢复，怎么修改？（<strong>撤销</strong>）<br><code>u</code>类似windows的ctrl+z<br><code>:q!</code>或者强制退出不保存</li>
-<li>复制66到71这6行的内容，并且黏贴到最后一行；（<strong>复制粘贴</strong>）<br><code>66G</code> 光标移动66行<br><code>6yy</code>复制6行<br><code>G</code>光标移动到最后一行<br><code>p</code>粘贴</li>
-<li>113到128行之间的内容删除；（<strong>整行删除</strong>）<br><code>113G</code>光标移动到113行<br><code>16dd</code>删除16行</li>
-<li>文件另存为man.test.config的文件名；（<strong>另存为</strong>）<br><code>:w man.test.config</code></li>
-<li>去到第25行，并且删除15个字符；（<strong>连续删除字符</strong>）<br><code>25G</code>移动到25行<br><code>15x</code>删除从光标开始处往后的15个字符</li>
-<li>在第一行新增一行，该行内容输入“I am a student…”;（<strong>新增</strong>）<br><code>1G</code>移动到第一行<br><code>O</code>新增一行，且进入插入模式</li>
-<li>保持后退出。（<strong>保存退出</strong>）<br><code>wq</code></li>
-</ol>
+<h6 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h6><p><img src="../../images/vim_1.png" alt="image"><br>想要将上图处理成下图的形式<br><img src="../../images/vim_3.png" alt="image"></p>
+<p><strong>可以使用可视化区块这个命令来完成这个操作</strong><br>    a. 按住<code>ctrl+v</code>，此时会以矩形的方式将光标进过的地方变白；<br>    b. 将变白的地方复制<code>y</code>；<br>    <img src="../../images/vim_2.png" alt="image"><br>    c. 移动到第一行末尾，插入一个空格，再回到命令行模式，粘贴<code>p</code>。</p>
 
         
     </section>
@@ -149,10 +134,8 @@
 
 
 
-<a id="pagenext" href="/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" class="article-next" title="Linux压缩命令"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/2019/11/22/vi%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="article-next" title="学习vi编辑器"><i class="icon-arrow-right"></i></a>
 
-
-<a id="pageprev" href="/2019/11/22/vim%E7%BC%96%E8%BE%91%E5%99%A8%E9%A2%9D%E5%A4%96%E5%8A%9F%E8%83%BD/" class="article-prev" title="vim编辑器额外功能"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -166,10 +149,10 @@
         repo: "fuzhangyang.github.io",
         owner: "FuzhangYang",
         admin: ["FuzhangYang"],
-        id: "2019/11/22/vi编辑器学习",
+        id: "2019/11/22/vim编辑器额外功能",
         distractionFreeMode: true,
-        title: "学习vi编辑器",
-        body: "https://fuzhangyang.github.io/2019/11/22/vi%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0/",
+        title: "vim编辑器额外功能",
+        body: "https://fuzhangyang.github.io/2019/11/22/vim%E7%BC%96%E8%BE%91%E5%99%A8%E9%A2%9D%E5%A4%96%E5%8A%9F%E8%83%BD/",
         labels: ["Linux"]
     }).render('comments');
     </script>
