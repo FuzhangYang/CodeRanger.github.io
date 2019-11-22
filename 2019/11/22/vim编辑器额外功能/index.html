@@ -84,7 +84,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#可视化区块（Visual-Block）"><span class="toc-number">1.</span> <span class="toc-text">可视化区块（Visual Block）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#问题描述"><span class="toc-number">1.1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决方案"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#可视化区块（Visual-Block）"><span class="toc-number">1.</span> <span class="toc-text">可视化区块（Visual Block）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#问题描述"><span class="toc-number">1.1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案"><span class="toc-number">1.2.</span> <span class="toc-text">解决方案</span></a></li></ol></li></ol>
         
     </div>
 
@@ -122,13 +122,15 @@
     
     <section class="article-body markdown-body">
         
-        <h5 id="可视化区块（Visual-Block）"><a href="#可视化区块（Visual-Block）" class="headerlink" title="可视化区块（Visual Block）"></a>可视化区块（Visual Block）</h5><p>以一个矩形为操作单位，进行复制、删除、粘贴操作</p>
+        <h4 id="可视化区块（Visual-Block）"><a href="#可视化区块（Visual-Block）" class="headerlink" title="可视化区块（Visual Block）"></a>可视化区块（Visual Block）</h4><p>以一个矩形为操作单位，进行复制、删除、粘贴操作</p>
 <a id="more"></a>
 
-<h6 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h6><p><img src="/images/vim_1.png" alt="image"><br>想要将上图处理成下图的形式<br><img src="/images/vim_3.png" alt="image"></p>
-<h6 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h6><pre><code>a. 按住`ctrl+v`，此时会以矩形的方式将光标进过的地方变白；
+<h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><p><img src="/images/vim_1.png" alt="image"><br>想要将上图处理成下图的形式<br><img src="/images/vim_3.png" alt="image"></p>
+<h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><pre><code>a. 按住`ctrl+v`，此时会以矩形的方式将光标进过的地方变白；
 b. 将变白的地方复制`y`；
+
 ![image](/images/vim_2.png)
+
 c. 移动到第一行末尾，插入一个空格，再回到命令行模式，粘贴`p`。</code></pre>
         
     </section>
