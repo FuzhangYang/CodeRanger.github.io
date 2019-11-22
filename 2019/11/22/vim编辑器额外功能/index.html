@@ -10,7 +10,7 @@
     <title>vim编辑器额外功能 | Code Ranger</title>
     <meta name="author" content="Creven Young" />
     <meta name="keywords" content="" />
-    <meta name="description" content="可视化区块（Visual Block）以一个矩形为操作单位，进行复制、删除、粘贴操作问题描述想要将上图处理成下图的形式解决方案a. 按住ctrl+v，此时会以矩形的方式将光标进过的地方变白；b. 将变白的地方复制y；c. 移动到第一行末尾，插入一个空格，再回到命令行模式，粘贴p。多窗口功能可以通过将一个窗口划分为多个，然后同时查看和编辑多个文件的功能命令操作:sp filename2 在已打开的文件filenam1输入，可以将编辑窗口划分为2个，同时编辑两个文件filename..." />
+    <meta name="description" content="可视化区块（Visual Block）以一个矩形为操作单位，进行复制、删除、粘贴操作问题描述想要将上图处理成下图的形式解决方案a. 按住ctrl+v，此时会以矩形的方式将光标进过的地方变白；b. 将变白的地方复制y；c. 移动到第一行末尾，插入一个空格，再回到命令行模式，粘贴p。多窗口功能可以通过将一个窗口划分为多个，然后同时查看和编辑多个文件的功能命令操作:sp filename2 在已打开的文件filenam1输入，可以将编辑窗口划分为2个，同时编辑两个文件filenam..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -127,8 +127,10 @@
 
 <h5 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h5><p><img src="/images/vim_1.png" alt="image"><br>想要将上图处理成下图的形式<br><img src="/images/vim_3.png" alt="image"></p>
 <h5 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h5><p>a. 按住<code>ctrl+v</code>，此时会以矩形的方式将光标进过的地方变白；<br>b. 将变白的地方复制<code>y</code>；<br><img src="/images/vim_2.png" alt="image"><br>c. 移动到第一行末尾，插入一个空格，再回到命令行模式，粘贴<code>p</code>。</p>
+<hr>
 <h4 id="多窗口功能"><a href="#多窗口功能" class="headerlink" title="多窗口功能"></a>多窗口功能</h4><p>可以通过将一个窗口划分为多个，然后同时查看和编辑多个文件的功能</p>
 <h5 id="命令操作"><a href="#命令操作" class="headerlink" title="命令操作"></a>命令操作</h5><p><code>:sp filename2</code> 在已打开的文件filenam1输入，可以将编辑窗口划分为2个，同时编辑两个文件filename1和filename2<br><code>ctrl + w + ↑</code> 移动到上方窗口<br><code>ctrl + w + ↓</code> 移动到下方窗口<br><code>ctrl + w + q</code> 结束退出当前窗口</p>
+<hr>
 <h4 id="关键词补全功能"><a href="#关键词补全功能" class="headerlink" title="关键词补全功能"></a>关键词补全功能</h4><p>其实感觉vim的关键词补全有点麻烦，先记下来，可能以后用得上</p>
 <h5 id="补齐命令组合"><a href="#补齐命令组合" class="headerlink" title="补齐命令组合"></a>补齐命令组合</h5><p><code>ctrl + x -&gt; ctrl + n</code> 通过正在编辑的这个文件的内容文字作为关键词，予以补齐<br><code>ctrl + x -&gt; ctrl + o</code> 需要提前制定文件扩展名，然后以扩展名作为语法补充，比如html扩展名，则自动补齐html的相关关键词</p>
 
