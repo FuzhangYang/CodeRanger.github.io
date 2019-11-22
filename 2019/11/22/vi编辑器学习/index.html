@@ -7,10 +7,10 @@
 
     
 
-    <title>Linux压缩命令 | Code Ranger</title>
+    <title>学习vi编辑器 | Code Ranger</title>
     <meta name="author" content="Creven Young" />
     <meta name="keywords" content="" />
-    <meta name="description" content="Linux下文件的压缩#####压缩文件概述123456*.zip       //zip程序压缩的文件*.gz        //gzip程序压缩的文件*.bz2       //bzip2程序压缩的文件*.tar       //tar程序打包的文件，并未压缩*.tar.gz    //tar程序打包的文件，并使用gzip程序压缩*.tar.bz2   //tar程序打包的文件，并使用bzip2程序压缩gzip （针对单一文件） 基本概念：当你使用gzip进行压缩时，源文件..." />
+    <meta name="description" content="一个vi案例练习一个vi的案例练习，总共15条操作，总是记不住，做个笔记，方便需要的时候直接查找。（摘自书籍：鸟哥的linux私房菜-第四版）请在/tmp这个目录下新建一个名为vitest的目录；（新建目录）mkdir /tmp/vitest进入vitest这个目录当中；（进入目录）cd /tmp/vitest/下载man_db.conf文件；（下载文件）wget http://linux.vbird.org/linux_basic/0310vi/man_db.conf使用v..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -88,7 +88,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Linux下文件的压缩"><span class="toc-number">1.</span> <span class="toc-text">Linux下文件的压缩</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#一个vi案例练习"><span class="toc-number">1.</span> <span class="toc-text">一个vi案例练习</span></a></li></ol>
         
     </div>
 
@@ -103,15 +103,15 @@
     <header class="article-header">
         
         <h1 itemprop="name">
-            Linux压缩命令
+            学习vi编辑器
         </h1>
         
         <div class="article-meta clearfix">
-            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/index.html">
+            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/22/vi%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0/index.html">
     
     <i class="icon-calendar"></i>
     
-    <time datetime="2019-11-21T14:35:56.000Z" itemprop="datePublished">2019-11-21</time>
+    <time datetime="2019-11-22T02:34:56.000Z" itemprop="datePublished">2019-11-22</time>
 </a>
 
             
@@ -126,31 +126,25 @@
     
     <section class="article-body markdown-body">
         
-        <h4 id="Linux下文件的压缩"><a href="#Linux下文件的压缩" class="headerlink" title="Linux下文件的压缩"></a>Linux下文件的压缩</h4><p>#####压缩文件概述</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*.zip       //zip程序压缩的文件</span><br><span class="line">*.gz        //gzip程序压缩的文件</span><br><span class="line">*.bz2       //bzip2程序压缩的文件</span><br><span class="line">*.tar       //tar程序打包的文件，并未压缩</span><br><span class="line">*.tar.gz    //tar程序打包的文件，并使用gzip程序压缩</span><br><span class="line">*.tar.bz2   //tar程序打包的文件，并使用bzip2程序压缩</span><br></pre></td></tr></table></figure>
+        <h5 id="一个vi案例练习"><a href="#一个vi案例练习" class="headerlink" title="一个vi案例练习"></a>一个vi案例练习</h5><p>一个vi的案例练习，总共15条操作，总是记不住，做个笔记，方便需要的时候直接查找。<br>（摘自书籍：鸟哥的linux私房菜-第四版）</p>
 <a id="more"></a>
 
 <ol>
-<li><p><code>gzip</code> （针对单一文件）</p>
-<p> 基本概念：<strong>当你使用gzip进行压缩时，源文件就不存在了，在linux下压缩的gz文件，在windows系统下可以使用WinRAR解开</strong><br> 命令用法：</p>
-<ul>
-<li><strong>压缩</strong> <code>gzip file</code>压缩file文件，输出<code>file.gz</code></li>
-<li><strong>解压</strong> <code>gzip -d file.gz</code>解压<code>file.gz</code>文件，输出<code>file</code></li>
-</ul>
-</li>
-<li><p><code>bzip2</code> （针对单一文件）</p>
-<p> 基本概念：<strong>bzip2是为了替换gzip，提供更佳的压缩比而来的，其基本用法和gzip一致</strong><br> 命令用法：</p>
-<ul>
-<li><strong>压缩</strong> <code>bzip2 file</code>压缩file文件，输出<code>file.bz2</code></li>
-<li><strong>解压</strong> <code>bzip2 -d file.bz2</code>解压<code>file.bz2</code>文件，输出file</li>
-</ul>
-</li>
-<li><p><code>tar</code> （打包多个文件，通过添加额外参数，同时进行压缩）<br> 基本概念：<strong>tar是一种打包命令，能够将多个文件或目录打包成一个大文件的命令功能，使用tar进行打包压缩的文件，以gzip压缩为例，生成*.tar.gz文件，这种文件在windows系统下能够用WinRAR解开</strong><br> 命令用法：（以gzip压缩为例 参数 -z）</p>
-<ul>
-<li><strong>压缩</strong> <code>tar zcvf file.tar.gz file1 file2 file3</code> 将file1、file2、file3通过tar打包，并使用gzip压缩，这里面<code>-z</code>表示gzip程序压缩，<code>-c</code>表示压缩，<code>-v</code>表示显示正在处理的文件名，<code>-f</code>后接自己取的压缩文件名 ，<strong>注意！这里的gzip压缩会保留源文件</strong></li>
-<li><strong>解压</strong> <code>tar zxvf file.tar.gz -C /tmp/test/</code> 将文件解压到指定目录<code>-x</code>表示解压，<code>-C</code>表示指定目录</li>
-</ul>
-</li>
+<li>请在/tmp这个目录下新建一个名为vitest的目录；（<strong>新建目录</strong>）<br><code>mkdir /tmp/vitest</code></li>
+<li>进入vitest这个目录当中；（<strong>进入目录</strong>）<br><code>cd /tmp/vitest/</code></li>
+<li>下载man_db.conf文件；（<strong>下载文件</strong>）<br><code>wget http://linux.vbird.org/linux_basic/0310vi/man_db.conf</code></li>
+<li>使用vi打开这个conf文件；（<strong>打开文件</strong>）<br><code>vi man_db.conf</code></li>
+<li>在vi中设置一下行号；（<strong>设置行号</strong>）<br><code>:set nu</code></li>
+<li>移动到第43行，向右移动59个字符。（<strong>行列移动</strong>）<br><code>43G</code><br><code>59→</code></li>
+<li>移动到第一行，并且查找gzip这个字符串。（<strong>字符串查找</strong>）<br><code>1G</code>或<code>gg</code><br><code>/gzip</code>此时会跳转到93行</li>
+<li>将29到41行之间的小写man字符改为大写MAN字符，并且一个一个确定是否需要修改 (<strong>区间查找替换</strong>)<br><code>:29,41s/man/MAN/gc</code>此处的c表示一个一个确定是否需要修改</li>
+<li>修改完之后反悔了，要全部恢复，怎么修改？（<strong>撤销</strong>）<br><code>u</code>类似windows的ctrl+z<br><code>:q!</code>或者强制退出不保存</li>
+<li>复制66到71这6行的内容，并且黏贴到最后一行；（<strong>复制粘贴</strong>）<br><code>66G</code> 光标移动66行<br><code>6yy</code>复制6行<br><code>G</code>光标移动到最后一行<br><code>p</code>粘贴</li>
+<li>113到128行之间的内容删除；（<strong>整行删除</strong>）<br><code>113G</code>光标移动到113行<br><code>16dd</code>删除16行</li>
+<li>文件另存为man.test.config的文件名；（<strong>另存为</strong>）<br><code>:w man.test.config</code></li>
+<li>去到第25行，并且删除15个字符；（<strong>连续删除字符</strong>）<br><code>25G</code>移动到25行<br><code>15x</code>删除从光标开始处往后的15个字符</li>
+<li>在第一行新增一行，该行内容输入“I am a student…”;（<strong>新增</strong>）<br><code>1G</code>移动到第一行<br><code>O</code>新增一行，且进入插入模式</li>
+<li>保持后退出。（<strong>保存退出</strong>）<br><code>wq</code></li>
 </ol>
 
         
@@ -159,10 +153,8 @@
 
 
 
-<a id="pagenext" href="/2019/11/13/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E4%B9%8BUML%E7%B1%BB%E5%9B%BE%E5%AD%A6%E4%B9%A0/" class="article-next" title="设计模式之UML类图学习"><i class="icon-arrow-right"></i></a>
+<a id="pagenext" href="/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/" class="article-next" title="Linux压缩命令"><i class="icon-arrow-right"></i></a>
 
-
-<a id="pageprev" href="/2019/11/22/vi%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="article-prev" title="学习vi编辑器"><i class="icon-arrow-left"></i></a>
 
 
 
@@ -176,10 +168,10 @@
         repo: "fuzhangyang.github.io",
         owner: "FuzhangYang",
         admin: ["FuzhangYang"],
-        id: "2019/11/21/Linux压缩命令",
+        id: "2019/11/22/vi编辑器学习",
         distractionFreeMode: true,
-        title: "Linux压缩命令",
-        body: "https://fuzhangyang.github.io/2019/11/21/Linux%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4/",
+        title: "学习vi编辑器",
+        body: "https://fuzhangyang.github.io/2019/11/22/vi%E7%BC%96%E8%BE%91%E5%99%A8%E5%AD%A6%E4%B9%A0/",
         labels: ["Linux"]
     }).render('comments');
     </script>
