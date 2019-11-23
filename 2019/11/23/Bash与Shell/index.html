@@ -10,7 +10,7 @@
     <title>Bash与Shell | Code Ranger</title>
     <meta name="author" content="Creven Young" />
     <meta name="keywords" content="" />
-    <meta name="description" content="bash命令学习ctrl + u当你写了一堆命令，发现写错了，想删除难道一直按住escape键吗？不！直接使用这个命令删除当前的命令bash每次执行这个命令，都会创建一个新的bash进程，当然，不同进程之间的变量是不共享的。这个时候你top查看进程，发现有两个bash在运行，可以使用exit命令退出一个。变量变量的定义正确的变量定义varname=handsomevarname=&amp;quot;happy to see you again&amp;quot;如果变量有空格可以使用双引号或单引..." />
+    <meta name="description" content="bash命令学习ctrl + u当你写了一堆命令，发现写错了，想删除难道一直按住escape键吗？不！直接使用这个命令删除当前的命令bash每次执行这个命令，都会创建一个新的bash进程，当然，不同进程之间的变量是不共享的。这个时候你top查看进程，发现有两个bash在运行，可以使用exit命令退出一个。变量变量的定义正确的变量定义varname=handsomevarname=&amp;quot;happy to see you again&amp;quot;如果变量有空格可以使用双引号或单引号..." />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
 
@@ -84,7 +84,7 @@
         
 
         
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash命令学习"><span class="toc-number">1.</span> <span class="toc-text">bash命令学习</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量"><span class="toc-number">1.1.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#变量的定义"><span class="toc-number">1.1.1.</span> <span class="toc-text">变量的定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量的输出"><span class="toc-number">1.1.2.</span> <span class="toc-text">变量的输出</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量的取消"><span class="toc-number">1.1.3.</span> <span class="toc-text">变量的取消</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量中单引号和双引号的区别"><span class="toc-number">1.1.4.</span> <span class="toc-text">变量中单引号和双引号的区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#变量的读取（用户交互）"><span class="toc-number">1.1.5.</span> <span class="toc-text">变量的读取（用户交互）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#命令的别名"><span class="toc-number">1.1.6.</span> <span class="toc-text">命令的别名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#通配符与特殊符号"><span class="toc-number">1.1.7.</span> <span class="toc-text">通配符与特殊符号</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#数据流重定向"><span class="toc-number">1.2.</span> <span class="toc-text">数据流重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#标准输出（standard-output）"><span class="toc-number">1.2.1.</span> <span class="toc-text">标准输出（standard output）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#标准错误输出（standard-error-output）"><span class="toc-number">1.2.2.</span> <span class="toc-text">标准错误输出（standard error output）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将标准输出和标准错误输出分别写到不同文件"><span class="toc-number">1.2.3.</span> <span class="toc-text">将标准输出和标准错误输出分别写到不同文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#将标准输出和标准错误输出写到相同文件"><span class="toc-number">1.2.4.</span> <span class="toc-text">将标准输出和标准错误输出写到相同文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#黑洞垃圾桶"><span class="toc-number">1.2.5.</span> <span class="toc-text">黑洞垃圾桶</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#管道命令"><span class="toc-number">1.3.</span> <span class="toc-text">管道命令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#cut命令"><span class="toc-number">1.3.1.</span> <span class="toc-text">cut命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#grep命令"><span class="toc-number">1.3.2.</span> <span class="toc-text">grep命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#sort命令"><span class="toc-number">1.3.3.</span> <span class="toc-text">sort命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#uniq命令"><span class="toc-number">1.3.4.</span> <span class="toc-text">uniq命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#wc命令"><span class="toc-number">1.3.5.</span> <span class="toc-text">wc命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tee命令"><span class="toc-number">1.3.6.</span> <span class="toc-text">tee命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#tr命令"><span class="toc-number">1.3.7.</span> <span class="toc-text">tr命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#paste命令"><span class="toc-number">1.3.8.</span> <span class="toc-text">paste命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#split命令"><span class="toc-number">1.3.9.</span> <span class="toc-text">split命令</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#减号（-）的作用"><span class="toc-number">1.3.10.</span> <span class="toc-text">减号（-）的作用</span></a></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bash命令学习"><span class="toc-number">1.</span> <span class="toc-text">bash命令学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量"><span class="toc-number">2.</span> <span class="toc-text">变量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#变量的定义"><span class="toc-number">2.1.</span> <span class="toc-text">变量的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量的输出"><span class="toc-number">2.2.</span> <span class="toc-text">变量的输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量的取消"><span class="toc-number">2.3.</span> <span class="toc-text">变量的取消</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量中单引号和双引号的区别"><span class="toc-number">2.4.</span> <span class="toc-text">变量中单引号和双引号的区别</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#变量的读取（用户交互）"><span class="toc-number">2.5.</span> <span class="toc-text">变量的读取（用户交互）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#命令的别名"><span class="toc-number">2.6.</span> <span class="toc-text">命令的别名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通配符与特殊符号"><span class="toc-number">2.7.</span> <span class="toc-text">通配符与特殊符号</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据流重定向"><span class="toc-number">3.</span> <span class="toc-text">数据流重定向</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准输出（standard-output）"><span class="toc-number">3.1.</span> <span class="toc-text">标准输出（standard output）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#标准错误输出（standard-error-output）"><span class="toc-number">3.2.</span> <span class="toc-text">标准错误输出（standard error output）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将标准输出和标准错误输出分别写到不同文件"><span class="toc-number">3.3.</span> <span class="toc-text">将标准输出和标准错误输出分别写到不同文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将标准输出和标准错误输出写到相同文件"><span class="toc-number">3.4.</span> <span class="toc-text">将标准输出和标准错误输出写到相同文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#黑洞垃圾桶"><span class="toc-number">3.5.</span> <span class="toc-text">黑洞垃圾桶</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#管道命令"><span class="toc-number">4.</span> <span class="toc-text">管道命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#cut命令"><span class="toc-number">4.1.</span> <span class="toc-text">cut命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#grep命令"><span class="toc-number">4.2.</span> <span class="toc-text">grep命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#sort命令"><span class="toc-number">4.3.</span> <span class="toc-text">sort命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#uniq命令"><span class="toc-number">4.4.</span> <span class="toc-text">uniq命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#wc命令"><span class="toc-number">4.5.</span> <span class="toc-text">wc命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tee命令"><span class="toc-number">4.6.</span> <span class="toc-text">tee命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tr命令"><span class="toc-number">4.7.</span> <span class="toc-text">tr命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#paste命令"><span class="toc-number">4.8.</span> <span class="toc-text">paste命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#split命令"><span class="toc-number">4.9.</span> <span class="toc-text">split命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#减号（-）的作用"><span class="toc-number">4.10.</span> <span class="toc-text">减号（-）的作用</span></a></li></ol></li></ol>
         
     </div>
 
@@ -126,21 +126,20 @@
 <a id="more"></a>
 
 <hr>
-<h4 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h4><hr>
-<h5 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h5><p>正确的变量定义<br><code>varname=handsome</code><br><code>varname=&quot;happy to see you again&quot;</code>如果变量有空格可以使用双引号或单引号<br><code>varname=&#39;your name&#39;</code><br><code>varname=your\ name</code>可以使用转义字符，这里转义了空格<br><code>varname=${PATH}:/home/bin</code>在PATH变量的基础上扩增<code>:/home/bin</code>内容（<strong>重要</strong>）<br>错误的变量定义<br><code>12var=handsome</code> 不能以数字开头<br><code>12var = handsome</code>等号左右两边不能有空格</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><h4 id="变量的定义"><a href="#变量的定义" class="headerlink" title="变量的定义"></a>变量的定义</h4><p>正确的变量定义<br><code>varname=handsome</code><br><code>varname=&quot;happy to see you again&quot;</code>如果变量有空格可以使用双引号或单引号<br><code>varname=&#39;your name&#39;</code><br><code>varname=your\ name</code>可以使用转义字符，这里转义了空格<br><code>varname=${PATH}:/home/bin</code>在PATH变量的基础上扩增<code>:/home/bin</code>内容（<strong>重要</strong>）<br>错误的变量定义<br><code>12var=handsome</code> 不能以数字开头<br><code>12var = handsome</code>等号左右两边不能有空格</p>
 <hr>
-<h5 id="变量的输出"><a href="#变量的输出" class="headerlink" title="变量的输出"></a>变量的输出</h5><p><code>echo ${PATH}</code>推荐<br><code>echo $PATH</code></p>
+<h4 id="变量的输出"><a href="#变量的输出" class="headerlink" title="变量的输出"></a>变量的输出</h4><p><code>echo ${PATH}</code>推荐<br><code>echo $PATH</code></p>
 <hr>
-<h5 id="变量的取消"><a href="#变量的取消" class="headerlink" title="变量的取消"></a>变量的取消</h5><p><code>myname=CrevenYeung</code>定义变量myname<br><code>unset myname</code>取消对myname变量的定义</p>
+<h4 id="变量的取消"><a href="#变量的取消" class="headerlink" title="变量的取消"></a>变量的取消</h4><p><code>myname=CrevenYeung</code>定义变量myname<br><code>unset myname</code>取消对myname变量的定义</p>
 <hr>
-<h5 id="变量中单引号和双引号的区别"><a href="#变量中单引号和双引号的区别" class="headerlink" title="变量中单引号和双引号的区别"></a>变量中单引号和双引号的区别</h5><p>正确的变量定义<br><code>varname=&quot;it&#39;s the best food&quot;</code> 正确！命令从左向右，先遇到的引号先有用，单引号变成一般字符<br>错误的变量定义<br><code>varname=&#39;it&#39;s the best food&#39;</code>错误！前面两个单引号已经成对，后面多出来一个<br>在进行变量扩增时<br><code>name=creven</code>定义变量name<br><code>fullname=&quot;${name} yeung&quot;</code>输出<code>creven yeung</code>，还是使用双引号吧。<br><code>fullname=&#39;${name} yeung&#39;</code>输出<code>${name} yeung</code></p>
+<h4 id="变量中单引号和双引号的区别"><a href="#变量中单引号和双引号的区别" class="headerlink" title="变量中单引号和双引号的区别"></a>变量中单引号和双引号的区别</h4><p>正确的变量定义<br><code>varname=&quot;it&#39;s the best food&quot;</code> 正确！命令从左向右，先遇到的引号先有用，单引号变成一般字符<br>错误的变量定义<br><code>varname=&#39;it&#39;s the best food&#39;</code>错误！前面两个单引号已经成对，后面多出来一个<br>在进行变量扩增时<br><code>name=creven</code>定义变量name<br><code>fullname=&quot;${name} yeung&quot;</code>输出<code>creven yeung</code>，还是使用双引号吧。<br><code>fullname=&#39;${name} yeung&#39;</code>输出<code>${name} yeung</code></p>
 <hr>
-<h5 id="变量的读取（用户交互）"><a href="#变量的读取（用户交互）" class="headerlink" title="变量的读取（用户交互）"></a>变量的读取（用户交互）</h5><p><code>read name</code>要求用户输入name<br><code>read -p &quot;please input your name: &quot; -t 30 name</code>具有提示的，要求用户在30秒内输入名字，<strong>参数必须放置变量的前面</strong></p>
+<h4 id="变量的读取（用户交互）"><a href="#变量的读取（用户交互）" class="headerlink" title="变量的读取（用户交互）"></a>变量的读取（用户交互）</h4><p><code>read name</code>要求用户输入name<br><code>read -p &quot;please input your name: &quot; -t 30 name</code>具有提示的，要求用户在30秒内输入名字，<strong>参数必须放置变量的前面</strong></p>
 <p><code>declare [-aixr] variable</code>，其中<code>-a</code>表示后面的变量是数组，<code>-i</code>表示后面的变量是整型，<code>-x</code>表示后面的变量会被定义成环境变量，<code>-r</code>表示变量将只读<br><code>declare -i sum=100+50</code>输出sum为150</p>
 <hr>
-<h5 id="命令的别名"><a href="#命令的别名" class="headerlink" title="命令的别名"></a>命令的别名</h5><p><code>alias lm=&#39;ls -al&#39;</code>此时lm命令就等价于<code>ls -al</code>，但是退出系统后这个命令就失效了哦。</p>
+<h4 id="命令的别名"><a href="#命令的别名" class="headerlink" title="命令的别名"></a>命令的别名</h4><p><code>alias lm=&#39;ls -al&#39;</code>此时lm命令就等价于<code>ls -al</code>，但是退出系统后这个命令就失效了哦。</p>
 <hr>
-<h5 id="通配符与特殊符号"><a href="#通配符与特殊符号" class="headerlink" title="通配符与特殊符号"></a>通配符与特殊符号</h5><p>其实就是正则表达式里面的东西啦，复习一下<br><code>*</code>表示【0到无穷多个】任意字符<br><code>?</code>表示【一定有一个】任意字符<br><code>[]</code>表示一定有一个在括号内的字符<br><code>[-]</code>表示一定有一个在编码顺序内的字符<br><code>[^]</code>表示一定有一个不在括号内的字符</p>
+<h4 id="通配符与特殊符号"><a href="#通配符与特殊符号" class="headerlink" title="通配符与特殊符号"></a>通配符与特殊符号</h4><p>其实就是正则表达式里面的东西啦，复习一下<br><code>*</code>表示【0到无穷多个】任意字符<br><code>?</code>表示【一定有一个】任意字符<br><code>[]</code>表示一定有一个在括号内的字符<br><code>[-]</code>表示一定有一个在编码顺序内的字符<br><code>[^]</code>表示一定有一个不在括号内的字符</p>
 <p>举个栗子</p>
 <ul>
 <li>找到以cron为开头的文件<br><code>ll /etc/cron*</code></li>
@@ -149,15 +148,15 @@
 <li>找出/etc/下面非小写字母开头的文件名<br><code>ll /etc/[^a-z]*</code></li>
 </ul>
 <hr>
-<h4 id="数据流重定向"><a href="#数据流重定向" class="headerlink" title="数据流重定向"></a>数据流重定向</h4><h5 id="标准输出（standard-output）"><a href="#标准输出（standard-output）" class="headerlink" title="标准输出（standard output）"></a>标准输出（standard output）</h5><p><code>&gt;</code>标准输出，<strong>覆盖</strong>所指定文件的所有内容<br><code>ll / &gt; ~/test</code>如果不存在test文件，则新建test文件，同时将<code>&gt;</code>前面的命令在屏幕所产生的所有数据重定向到test文件中。如果已经存在test文件，则覆盖掉源文件的所有内容<br><code>&gt;&gt;</code>标准输出，<strong>叠加</strong>在原文件上<br><code>ll / &gt;&gt; ~/test</code>原理同<code>&gt;</code>只不过，现在是叠加了，不会清空原先的数据</p>
+<h3 id="数据流重定向"><a href="#数据流重定向" class="headerlink" title="数据流重定向"></a>数据流重定向</h3><h4 id="标准输出（standard-output）"><a href="#标准输出（standard-output）" class="headerlink" title="标准输出（standard output）"></a>标准输出（standard output）</h4><p><code>&gt;</code>标准输出，<strong>覆盖</strong>所指定文件的所有内容<br><code>ll / &gt; ~/test</code>如果不存在test文件，则新建test文件，同时将<code>&gt;</code>前面的命令在屏幕所产生的所有数据重定向到test文件中。如果已经存在test文件，则覆盖掉源文件的所有内容<br><code>&gt;&gt;</code>标准输出，<strong>叠加</strong>在原文件上<br><code>ll / &gt;&gt; ~/test</code>原理同<code>&gt;</code>只不过，现在是叠加了，不会清空原先的数据</p>
 <hr>
-<h5 id="标准错误输出（standard-error-output）"><a href="#标准错误输出（standard-error-output）" class="headerlink" title="标准错误输出（standard error output）"></a>标准错误输出（standard error output）</h5><p><code>2&gt;</code> 标准错误输出，<strong>覆盖</strong>所指定文件的所有内容<br><code>call 2&gt; ~/error_test</code>由于不存在call命令，因此会将错误信息输出到error_test文件中<br><code>2&gt;&gt;</code>标准错误输出，<strong>叠加</strong>在原文件上</p>
+<h4 id="标准错误输出（standard-error-output）"><a href="#标准错误输出（standard-error-output）" class="headerlink" title="标准错误输出（standard error output）"></a>标准错误输出（standard error output）</h4><p><code>2&gt;</code> 标准错误输出，<strong>覆盖</strong>所指定文件的所有内容<br><code>call 2&gt; ~/error_test</code>由于不存在call命令，因此会将错误信息输出到error_test文件中<br><code>2&gt;&gt;</code>标准错误输出，<strong>叠加</strong>在原文件上</p>
 <hr>
-<h5 id="将标准输出和标准错误输出分别写到不同文件"><a href="#将标准输出和标准错误输出分别写到不同文件" class="headerlink" title="将标准输出和标准错误输出分别写到不同文件"></a>将标准输出和标准错误输出分别写到不同文件</h5><p><code>find /home -name .bashrc &gt; ~/test 2&gt; ~/error_test</code></p>
+<h4 id="将标准输出和标准错误输出分别写到不同文件"><a href="#将标准输出和标准错误输出分别写到不同文件" class="headerlink" title="将标准输出和标准错误输出分别写到不同文件"></a>将标准输出和标准错误输出分别写到不同文件</h4><p><code>find /home -name .bashrc &gt; ~/test 2&gt; ~/error_test</code></p>
 <hr>
-<h5 id="将标准输出和标准错误输出写到相同文件"><a href="#将标准输出和标准错误输出写到相同文件" class="headerlink" title="将标准输出和标准错误输出写到相同文件"></a>将标准输出和标准错误输出写到相同文件</h5><p><code>find /home -name .bashrc &gt; ~/test 2&gt; ~/test</code>错误！虽然可以写入，但是会导致乱序<br><code>find /home -name .bashrc &amp;&gt; ~/test</code>正确！</p>
+<h4 id="将标准输出和标准错误输出写到相同文件"><a href="#将标准输出和标准错误输出写到相同文件" class="headerlink" title="将标准输出和标准错误输出写到相同文件"></a>将标准输出和标准错误输出写到相同文件</h4><p><code>find /home -name .bashrc &gt; ~/test 2&gt; ~/test</code>错误！虽然可以写入，但是会导致乱序<br><code>find /home -name .bashrc &amp;&gt; ~/test</code>正确！</p>
 <hr>
-<h5 id="黑洞垃圾桶"><a href="#黑洞垃圾桶" class="headerlink" title="黑洞垃圾桶"></a>黑洞垃圾桶</h5><p><code>/dev/null</code>可以吃掉任何导向这个设备的信息</p>
+<h4 id="黑洞垃圾桶"><a href="#黑洞垃圾桶" class="headerlink" title="黑洞垃圾桶"></a>黑洞垃圾桶</h4><p><code>/dev/null</code>可以吃掉任何导向这个设备的信息</p>
 <ul>
 <li>先来看看不适用标准错误输出时，<strong>无论如何都想要新建/tmp/abc/haha文件是怎么样操作的</strong></li>
 </ul>
@@ -168,41 +167,41 @@
 </ul>
 <p>操作命令：<br><code>ls /tmp/abc || mkdir /tmp/abc &amp;&amp; touch /tmp/abc/haha 2&gt; /dev/null</code></p>
 <hr>
-<h4 id="管道命令"><a href="#管道命令" class="headerlink" title="管道命令"></a>管道命令</h4><p><strong>管道命令可以藉由前一步产生的标准输出内容，作为下一个命令的标准输入进一步处理</strong></p>
+<h3 id="管道命令"><a href="#管道命令" class="headerlink" title="管道命令"></a>管道命令</h3><p><strong>管道命令可以藉由前一步产生的标准输出内容，作为下一个命令的标准输入进一步处理</strong></p>
 <p><code>ll | cat -n</code> ll可以输出当前目录下的所有文件和目录，经过cat处理可以添加行号显示</p>
-<h5 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h5><p>进行信息切割，选取某一段数据，<strong>通常是针对一行一行的数据来处理的</strong></p>
+<h4 id="cut命令"><a href="#cut命令" class="headerlink" title="cut命令"></a>cut命令</h4><p>进行信息切割，选取某一段数据，<strong>通常是针对一行一行的数据来处理的</strong></p>
 <p><code>echo ${PATH} | cut -d &#39;:&#39; -f 4</code>表示按<code>:</code>分隔，选取第四个区域的数据<br><code>export | cut -c 12-</code>表示按字符分隔，每行从只取从第12个字符开始的数据</p>
 <hr>
-<h5 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h5><p>分析一行数据中如果有想要的信息就将那一行数据提取出来</p>
+<h4 id="grep命令"><a href="#grep命令" class="headerlink" title="grep命令"></a>grep命令</h4><p>分析一行数据中如果有想要的信息就将那一行数据提取出来</p>
 <p><code>ll | grep creven</code>提取出所有包含creven的行<br><code>ll | grep -c creven</code>提取出包含creven数据的行数<br><code>ll | grep -v creven</code>提取出所有不包含creven数据的行</p>
 <hr>
-<h5 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h5><p>对按行数据进行排序</p>
+<h4 id="sort命令"><a href="#sort命令" class="headerlink" title="sort命令"></a>sort命令</h4><p>对按行数据进行排序</p>
 <p><code>ll | sort</code>默认升序<br><code>ll | sort -r</code>降序<br><code>cat /etc/passwd | sort -t &#39;:&#39; -k 3</code>按<code>:</code>分割后的第三块来排序<br><code>cat /etc/passwd | sort -t &#39;:&#39; -k 3 -n</code>如果第三块是数字，想要按数字大小排序，就加上-n选项</p>
 <hr>
-<h5 id="uniq命令"><a href="#uniq命令" class="headerlink" title="uniq命令"></a>uniq命令</h5><p>去重</p>
+<h4 id="uniq命令"><a href="#uniq命令" class="headerlink" title="uniq命令"></a>uniq命令</h4><p>去重</p>
 <p><code>export | tail -3 | cut -c 1-12 | uniq</code>首先输出export的后三行，然后截取每一行的1到12个字符，对这12个字符按行去重，然后输出结果</p>
 <hr>
-<h5 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h5><p>统计行数，单词数，字符数的命令</p>
+<h4 id="wc命令"><a href="#wc命令" class="headerlink" title="wc命令"></a>wc命令</h4><p>统计行数，单词数，字符数的命令</p>
 <p><code>export | tail -3 | cut -c 1-12 | uniq | wc -l</code>输出共几行<br><code>export | tail -3 | cut -c 1-12 | uniq | wc -w</code>输出共几个单词<br><code>export | tail -3 | cut -c 1-12 | uniq | wc -m</code>输出共几个字符</p>
 <hr>
-<h5 id="tee命令"><a href="#tee命令" class="headerlink" title="tee命令"></a>tee命令</h5><p>双重定向，同时重定向到文件和屏幕<br><code>ll | tee ~/test</code>同时将标准输出定向到屏幕和test文件</p>
+<h4 id="tee命令"><a href="#tee命令" class="headerlink" title="tee命令"></a>tee命令</h4><p>双重定向，同时重定向到文件和屏幕<br><code>ll | tee ~/test</code>同时将标准输出定向到屏幕和test文件</p>
 <hr>
-<h5 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h5><p>tr命令可以用来删除某些文字，或者替换文字</p>
+<h4 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h4><p>tr命令可以用来删除某些文字，或者替换文字</p>
 <ul>
 <li>删除<br><code>ll | tr -d creven</code>删除掉所有creven</li>
 <li>替换<br><code>ll | tr young yeung</code>将所有的young替换成yeung<br><code>ll | tr [a-z] [A-Z]</code>将所有的小写替换成大写</li>
 </ul>
 <hr>
-<h5 id="paste命令"><a href="#paste命令" class="headerlink" title="paste命令"></a>paste命令</h5><p>直接将两个文件 按行连接在一起，使用tab分割<br><code>paste /etc/passwd /etc/shadow</code></p>
+<h4 id="paste命令"><a href="#paste命令" class="headerlink" title="paste命令"></a>paste命令</h4><p>直接将两个文件 按行连接在一起，使用tab分割<br><code>paste /etc/passwd /etc/shadow</code></p>
 <hr>
-<h5 id="split命令"><a href="#split命令" class="headerlink" title="split命令"></a>split命令</h5><p>按行或者按大小划分文件</p>
+<h4 id="split命令"><a href="#split命令" class="headerlink" title="split命令"></a>split命令</h4><p>按行或者按大小划分文件</p>
 <ul>
 <li>按大小<br><code>split ~/test -b 20b</code>按20字节分割，输出很多小文件以xaa，xab，xac这样的命名<br><code>split ~/test -b 20k</code>按20k字节分割<br><code>split ~/test -b 20m byM</code>按20M字节分割，添加prefix，这时候输出的文件名是byMaa，byMab这样的形式</li>
 <li>按行<br><code>split ~/test -l 10</code>以10行为单位，进行分割文件</li>
 </ul>
 <p><strong>如何将分割完的小文件合并成大文件呢？</strong><br><code>cat PREFIX* &gt;&gt; newFileName</code> 这边的PREFIX是前面split的时候取的，重定向到新文件就好了</p>
 <hr>
-<h5 id="减号（-）的作用"><a href="#减号（-）的作用" class="headerlink" title="减号（-）的作用"></a>减号（-）的作用</h5><p>可以视为标准数入或者标准输出</p>
+<h4 id="减号（-）的作用"><a href="#减号（-）的作用" class="headerlink" title="减号（-）的作用"></a>减号（-）的作用</h4><p>可以视为标准数入或者标准输出</p>
 <p>FOR EXAMPLE<br><code>ls -al / | split -l 10 ??? lsroot</code>想要将当前屏幕输出的内容进行分割，但是split需要输入文件，没有这么个文件，???该写什么呢？<br><code>ls -al / | split -l 10 - lsroot</code>这个时候可以用减号<code>-</code>来表示这个“文件”，也就是标准输入或标准输出的内容。</p>
 
         
