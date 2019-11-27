@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+    
+
+    
+
+    <title>正则表达式 | Code Ranger</title>
+    <meta name="author" content="Creven Young" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="语系对正则表达式的影响在使用正则表达式之前，可以查看一下系统所使用的语系，因为不同的语系编码方式或顺序不同，比如LANG=C 时 0 1 2 3 4 ... A B C D E ... a b c d e...LANG=zh_CN 时 0 1 2 3 4 ... A a B b C c ....使用env | grep LANG查看当前系统的语系，比如我的系统语系是LANG=C.UTF-8正则表达式案例分析（基础型）查找test和tast （集合）grep &amp;#39;t[a..." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no" />
+
+    
+    <link rel="alternate" href="/atom.xml" title="Code Ranger" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/images/bitbug_favicon.ico">
+    
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'icomoon';
+        src: url("/fonts/icomoon.eot?q628ml");
+        src: url("/fonts/icomoon.eot?q628ml#iefix") format('embedded-opentype'),
+             url("/fonts/icomoon.ttf?q628ml") format('truetype'),
+             url("/fonts/icomoon.woff?q628ml") format('woff'),
+             url("/fonts/icomoon.svg?q628ml#icomoon") format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    </style>
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!--[if lt IE 9]>
+    <style type="text/css">
+    .nav-inner {top:0;}
+    .author-meta {position:static;top:0;}
+    .search-form {height:36px;}
+    </style>
+    <script type="text/javascript" src="https://unpkg.com/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+    <main class="app">
+        <header id="header" class="header clearfix">
+    <div id="nav" class="nav">
+    <div class="nav-mobile">
+        <button id="open-panel" class="open-panel nav-mobile-item"><i class="icon-documents"></i></button>
+        <h1 class="nav-mobile-title nav-mobile-item">Code Ranger</h1>
+        <button id="open-menus" class="open-panel nav-mobile-item"><i class="icon-library"></i></button>
+    </div>
+
+    <nav id="nav-inner" class="nav-inner">
+        
+            <a class="nav-item" href="/">
+                <span class="nav-text">首页</span>
+            </a>
+        
+            <a class="nav-item" href="/tags">
+                <span class="nav-text">目录</span>
+            </a>
+        
+            <a class="nav-item" href="/archives">
+                <span class="nav-text">归档</span>
+            </a>
+        
+    </nav>
+</div>
+
+    
+<aside id="aside" class="aside">
+    <div id="aside-mask" class="aside-mask"></div>
+    <div id="aside-inner" class="aside-inner">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit"><i class="icon-search-stroke"></i></button><input type="hidden" name="sitesearch" value="https://fuzhangyang.github.io"></form>
+
+        
+        
+        
+        
+
+        
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#语系对正则表达式的影响"><span class="toc-number">1.</span> <span class="toc-text">语系对正则表达式的影响</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式案例分析（基础型）"><span class="toc-number">2.</span> <span class="toc-text">正则表达式案例分析（基础型）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#正则表达式案例分析（扩展型）"><span class="toc-number">3.</span> <span class="toc-text">正则表达式案例分析（扩展型）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sed命令（增删改查）"><span class="toc-number">4.</span> <span class="toc-text">sed命令（增删改查）</span></a></li></ol>
+        
+    </div>
+
+</aside>
+
+</header>
+
+        <div id="content" class="content">
+            <div id="wrapper" class="wrapper" style="max-width: 800px">
+                <article class="article" itemscope itemprop="blogPost">
+    
+    <header class="article-header">
+        
+        <h1 itemprop="name">
+            正则表达式
+        </h1>
+        
+        <div class="article-meta clearfix">
+            <a class="article-date" href="https://fuzhangyang.github.io/2019/11/27/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/index.html">
+    
+    <i class="icon-calendar"></i>
+    
+    <time datetime="2019-11-27T08:35:28.000Z" itemprop="datePublished">2019-11-27</time>
+</a>
+
+            
+<div class="article-tag-list">
+    <i class="icon-tag"></i>
+    <a class="article-tag-link" href="/tags/Linux/" rel="tag">Linux</a>
+</div>
+
+
+        </div>
+    </header>
+    
+    <section class="article-body markdown-body">
+        
+        <h3 id="语系对正则表达式的影响"><a href="#语系对正则表达式的影响" class="headerlink" title="语系对正则表达式的影响"></a>语系对正则表达式的影响</h3><p>在使用正则表达式之前，可以查看一下系统所使用的语系，因为不同的语系编码方式或顺序不同，比如</p>
+<ul>
+<li>LANG=C 时 <code>0 1 2 3 4 ... A B C D E ... a b c d e...</code></li>
+<li>LANG=zh_CN 时 <code>0 1 2 3 4 ... A a B b C c ....</code><br>使用<code>env | grep LANG</code>查看当前系统的语系，比如我的系统语系是<code>LANG=C.UTF-8</code></li>
+</ul>
+<a id="more"></a>
+
+<h3 id="正则表达式案例分析（基础型）"><a href="#正则表达式案例分析（基础型）" class="headerlink" title="正则表达式案例分析（基础型）"></a>正则表达式案例分析（基础型）</h3><ol>
+<li>查找test和tast （<strong>集合</strong>）<br><code>grep &#39;t[ae]st&#39; filename</code></li>
+<li>查找所有包含oo，但是不包含goo （<strong>不包含的集合</strong>）<br><code>grep &#39;[^g]oo&#39; filename</code></li>
+<li>所有只在字符串开头出现的the （<strong>字符串开头</strong>）<br><code>grep &#39;^the&#39; filename</code></li>
+<li>所有只在字符串结尾出现的well （<strong>字符串结尾</strong>）<br><code>grep &#39;well$&#39; filename</code></li>
+<li>所有以英文半角句号<code>.</code>结尾的 （<strong>特殊字符</strong>）<br><code>grep &#39;\.$&#39; filename</code></li>
+<li>以g开头d结尾的4个字节大小的字符串 （<strong>任意字符</strong>）<br><code>grep &#39;g..d&#39; filename</code></li>
+<li>以oo，ooo，oooo，… ,类型的字符串 （<strong>重复字符（0-n次）</strong>）<br><code>grep &#39;oo*&#39; filename</code></li>
+<li>重复固定次数的字符串 （<strong>重复次数限制，限定字符</strong>）<ul>
+<li><code>grep &#39;bo\{2\}&#39;</code> 重复o2次的字符串，既boo</li>
+<li><code>grep &#39;bo\{2,5\}&#39;</code> 重复o 2-5次的字符串，既boo，booo，boooo，booooo</li>
+<li><code>grep &#39;bo\{2,\}&#39;</code> 重复o2次及以上的字符串</li>
+</ul>
+</li>
+</ol>
+<h3 id="正则表达式案例分析（扩展型）"><a href="#正则表达式案例分析（扩展型）" class="headerlink" title="正则表达式案例分析（扩展型）"></a>正则表达式案例分析（扩展型）</h3><ol>
+<li>以oo，ooo，oooo，… ,类型的字符串 （<strong>重复字符（1-n次）</strong>）<br><code>egrep &#39;o+&#39; filename</code></li>
+<li>查找所有的sin或者sing （<strong>重复0次或1次</strong>）<br><code>egrep &#39;sing?&#39; filename</code></li>
+<li>查找所有的good，food，loop （<strong>或</strong>）<br><code>egrep &#39;good|loop|food&#39; filename</code></li>
+<li>表示AxyzxyzxyzxyzC （<strong>群组</strong>）<br><code>egrep &#39;A(xyz)+C&#39; filename</code></li>
+</ol>
+<h3 id="sed命令（增删改查）"><a href="#sed命令（增删改查）" class="headerlink" title="sed命令（增删改查）"></a>sed命令（增删改查）</h3><p>sed使用操作<code>sed [-nefr] [操作]</code>，也可以用于管道命令</p>
+<ul>
+<li>增<br><code>/etc/passwd | sed &#39;2a creven&#39;</code> 在第二行之后，新增一行creven<br><code>/etc/passwd | sed &#39;2i creven&#39;</code> 在第二行的之前，新增一行creven</li>
+<li>删<br><code>/etc/passwd | sed &#39;2,5d&#39;</code> 删除passwd文件的第2-5行<br><code>/etc/passwd | sed &#39;2,$d&#39;</code> 删除passwd文件的第2行到最后一行</li>
+<li>查<br><code>/etc/passwd | sed -n &#39;5,7p&#39;</code> 打印第5-7行的数据</li>
+<li>改<br><code>/sbin/ifconfig eth0 | grep &#39;inet &#39; | sed &#39;&#39;s/^.*inet //g | sed &#39;s/ .*$//g&#39;</code> 语句解析如下<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/sbin/ifconfig eth0 | grep 'inet ' 将会输出一下内容，注意空格</span><br><span class="line">        inet <span class="number">169.254</span><span class="number">.219</span><span class="number">.123</span>  netmask <span class="number">255.255</span><span class="number">.0</span><span class="number">.0</span></span><br><span class="line">| sed ''s/^.*inet //g | sed 's/ .*$//g'` 处理成以下内容</span><br><span class="line"><span class="number">169.254</span><span class="number">.219</span><span class="number">.123</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+
+        
+    </section>
+</article>
+
+
+
+<a id="pagenext" href="/2019/11/23/Bash%E4%B8%8EShell/" class="article-next" title="Bash与Shell"><i class="icon-arrow-right"></i></a>
+
+
+
+
+<div class="comments">
+    <div id="comments"></div>
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <script>
+    new Gitalk({
+        clientID: "b1dd3d6e10c1ecbeaea5",
+        clientSecret: "2666339d30fd8883e0bd1326c3a774b15c71bdc3",
+        repo: "fuzhangyang.github.io",
+        owner: "FuzhangYang",
+        admin: ["FuzhangYang"],
+        id: "2019/11/27/正则表达式",
+        distractionFreeMode: true,
+        title: "正则表达式",
+        body: "https://fuzhangyang.github.io/2019/11/27/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/",
+        labels: ["Linux"]
+    }).render('comments');
+    </script>
+</div>
+
+
+            </div>
+        </div>
+        <footer class="footer">
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>, 
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?0f2b8d42049d5935376022a6fb481b82";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    
+
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+    
+    
+</footer>
+
+    </main>
+
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        var nodes = {
+            nav: $('#nav'),
+            aside: $('#aside'),
+            asideInner: $('#aside-inner'),
+            navInner: $('#nav-inner')
+        };
+
+        var doing = false;
+        nodes.asideInner.on('webkitAnimationEnd mozAnimationEnd oAnimationEnd oanimationend animationend', function() {
+            if (nodes.aside.hasClass('mobile-open')) {
+                nodes.aside.removeClass('mobile-open');
+            } else {
+                nodes.aside.removeClass('mobile-close panel-show');
+            }
+            doing = false;
+        });
+        $('#open-panel, #aside-mask').on('click', function() {
+            if (doing) {
+                return;
+            }
+
+            if (nodes.aside.hasClass('panel-show')) {
+                nodes.aside.addClass('mobile-close');
+            } else {
+                nodes.aside.addClass('mobile-open panel-show');
+            }
+        });
+        $('#open-menus').on('click', function() {
+            nodes.navInner.slideToggle();
+        });
+
+        if (window.innerWidth <= 960) {
+            setTimeout(function() {
+                nodes.navInner.slideUp();
+            }, 3000);
+        }
+    });
+    </script>
+    
+        <script src="/js/scrollspy.min.js"></script>
+        <script type="text/javascript">
+        $(document.body).scrollspy({target: '#aside-inner'});
+
+        $(window).on('resize', function() {
+            var hw = $('#header').width();
+            var ww = $('#wrapper').width();
+            var space = ($(this).width() - hw - ww) / 2 / 2;
+
+            var pageprev = $('#pageprev');
+            var pagenext = $('#pagenext');
+            var avg = (pageprev.width() + pagenext.width()) / 2
+
+            if(space > avg) {
+                var len = space - avg / 2;
+                var styles = {position: 'fixed', top: '50%', marginTop: - (pageprev.width() + pagenext.width()) / 4}
+                pageprev.css($.extend({left: hw + len}, styles));
+                pagenext.css($.extend({right: len}, styles));
+            } else {
+                pageprev.removeAttr('style');
+                pagenext.removeAttr('style');
+            }
+        }).trigger('resize');
+        </script>
+    
+
+</body>
+</html>
